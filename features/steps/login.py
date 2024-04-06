@@ -28,12 +28,16 @@ def step_impl(context):
 def step_impl(context):
     context.login_page.click_login_button()
 
+@when(u'I click on the avatar icon')
+def step_impl(context):
+    dashboard_page = DashboardPage(context.driver)
+    context.dashboard_page = dashboard_page
+    dashboard_page.click_avatar_icon()
 
 @then(u'I should see email on the avatar section')
 def step_impl(context):
     dashboard_page = DashboardPage(context.driver)
     context.dashboard_page = dashboard_page
-    dashboard_page.click_avatar_icon()
     dashboard_mail = dashboard_page.catch_mail_name()
     assert dashboard_mail, ConfigReader.read_configuration("Admin Account", "email")
 

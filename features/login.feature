@@ -6,6 +6,7 @@ Feature: Login functionality
     When I enter a valid Email
     And I enter a valid Password
     And I click the login button
+    And I click on the avatar icon
     Then I should see email on the avatar section
 
   @negative_login
