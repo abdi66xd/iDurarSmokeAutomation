@@ -10,6 +10,7 @@ class LoginPage:
     password_XPATH = (By.XPATH, "//input[@id='normal_login_password']")
     login_button_XPATH = (By.XPATH, "//span[normalize-space()='Log In']")
     dashboard_logo_XPATH = (By.XPATH, "//img[@src='/assets/logo-text-B-YMIDGj.svg']")
+    email_alert_XPATH = (By.XPATH, "//div[@class='ant-form-item-explain-error']")
 
     def __init__(self, driver):
         self.driver = driver
@@ -32,4 +33,9 @@ class LoginPage:
         login_button.click()
         sleep(5)
 
+    def catch_email_alert(self):
+        sleep(2)
+        email_element = self.driver.find_element(*self.email_alert_XPATH)
+        email_alert_text = email_element.text
+        return email_alert_text
 

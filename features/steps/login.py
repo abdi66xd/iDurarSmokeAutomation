@@ -40,15 +40,28 @@ def step_impl(context):
 
 @when(u'I enter an invalid Email')
 def step_impl(context):
+<<<<<<< HEAD
     context.login_page.fill_email_field("invalid_email@example.com")
+=======
+    context.login_page.fill_email_field("aef@")
+>>>>>>> 34f4f34 (Login invalid scenarios)
 
 
 @when(u'I enter an invalid Password')
 def step_impl(context):
+<<<<<<< HEAD
     context.login_page.fill_password_field("invalid_password")
 
 
 @then(u'I should see an alert')
 def step_impl(context):
-    # Add verification steps to check if an alert is displayed
-    pass
+    context.login_page.fill_email_field(ConfigReader.read_configuration("Admin Account", "email"))
+
+
+@then(u'I should see an email alert')
+def step_impl(context):
+    login_page = LoginPage(context.driver)
+    context.login_page = login_page
+    mail_alert = login_page.catch_email_alert()
+    assert mail_alert, "Email is not a valid email"
+

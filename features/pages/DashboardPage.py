@@ -22,7 +22,6 @@ class DashboardPage:
         login_button.click()
 
     def catch_mail_name(self):
-        sleep(5)
         email_element = self.driver.find_element(*self.email_element_XPATH)
         email_text = email_element.text
         return email_text
