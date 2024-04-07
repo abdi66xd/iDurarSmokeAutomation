@@ -1,11 +1,5 @@
-import configparser
-from time import sleep
-
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
-from utilities import ConfigReader
+from utilities.WaitManager import WaitManager
 
 
 class DashboardPage:
@@ -17,12 +11,9 @@ class DashboardPage:
         self.driver = driver
 
     def click_avatar_icon(self):
-        login_button = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable(self.avatar_icon_XPATH))
+        login_button = WaitManager.wait_for_element(self.driver, self.avatar_icon_XPATH)
         login_button.click()
 
     def catch_mail_name(self):
-        sleep(3)
-        email_element = self.driver.find_element(*self.email_element_XPATH)
-        email_text = email_element.text
-        return email_text
+        email_element = WaitManager.wait_for_element(self.driver, self.email_element_XPATH)
+        return email_element.text

@@ -10,8 +10,18 @@ Feature: Login functionality
     Then I should see email on the avatar section
 
   @negative_login
-  Scenario: Login using invalid credentials
+  Scenario: Invalid email introduced
     Given I got navigated to the Login page
     When I enter an invalid Email
     Then I should see an email alert
+
+
+  @negative_login1
+  Scenario: Login using invalid credentials
+    Given I got navigated to the Login page
+    When I enter a valid Email
+    And I enter an invalid Password
+    And I click the login button
+    Then I should see an invalid credentials alert
+
 

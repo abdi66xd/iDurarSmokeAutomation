@@ -28,11 +28,13 @@ def step_impl(context):
 def step_impl(context):
     context.login_page.click_login_button()
 
+
 @when(u'I click on the avatar icon')
 def step_impl(context):
     dashboard_page = DashboardPage(context.driver)
     context.dashboard_page = dashboard_page
     dashboard_page.click_avatar_icon()
+
 
 @then(u'I should see email on the avatar section')
 def step_impl(context):
@@ -58,3 +60,16 @@ def step_impl(context):
     context.login_page = login_page
     mail_alert = login_page.catch_email_alert()
     assert mail_alert, "Email is not a valid email"
+
+
+@when("I enter an invalid Password")
+def step_impl(context):
+    context.login_page.fill_password_field("999")
+
+
+@then("I should see an invalid credentials alert")
+def step_impl(context):
+    login_page = LoginPage(context.driver)
+    context.login_page = login_page
+    invalid_credentials_text = login_page.catch_invalid_credentials_error()
+    assert invalid_credentials_text, "Invalid credentials."
