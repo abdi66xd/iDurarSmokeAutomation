@@ -1,0 +1,13 @@
+# First remove the ".example" from this file and delete the comments When all is set up
+[Basic Information]
+# Browser which the automation script will be run and url which the environment e.g chrome, firefox, edge
+browser = chrome
+# Login link which you want to perform the run of the automated tests
+url="https://example.idurarapp.com/login"
+
+
+# Email & password credentials created from iDurar or if are you using local environment the ones created by you
+[Admin Account]
+email = admin.account@email
+password = admin.account.password
+

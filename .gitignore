@@ -46,3 +46,7 @@ node_modules/
 # Selenium
 geckodriver.log
 chromedriver.log
+
+
+# Configurations
+configurations/configs.ini
