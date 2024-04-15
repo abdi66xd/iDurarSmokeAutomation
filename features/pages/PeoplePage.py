@@ -13,12 +13,12 @@ class PeoplePage:
         new_person_button = WaitManager.wait_for_element(self.driver, new_person_button_locator)
         new_person_button.click()
 
-    def fill_firstname_field(self, first_name):
+    def fill_people_firstname_field(self, first_name):
         email_field = WaitManager.wait_for_element(self.driver, first_name_locator)
         email_field.clear()
         email_field.send_keys(first_name)
 
-    def fill_lastname_field(self, last_name):
+    def fill_people_lastname_field(self, last_name):
         email_field = WaitManager.wait_for_element(self.driver, last_name_locator)
         email_field.clear()
         email_field.send_keys(last_name)
@@ -27,7 +27,7 @@ class PeoplePage:
         submit_new_person_button = WaitManager.wait_for_element(self.driver, submit_new_person_button_locator)
         submit_new_person_button.click()
 
-    def click_close_modal_icon(self):
+    def click_people_close_modal_icon(self):
         close_icon = WaitManager.wait_for_element(self.driver, submit_new_person_button_locator)
         close_icon.click()
 

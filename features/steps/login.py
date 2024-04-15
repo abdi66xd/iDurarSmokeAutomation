@@ -1,8 +1,4 @@
-# in features/steps/login_steps.py
-from time import sleep
-
 from behave import given, when, then
-
 from features.pages.DashboardPage import DashboardPage
 from features.pages.LoginPage import LoginPage
 from utilities import ConfigReader

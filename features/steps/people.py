@@ -1,9 +1,7 @@
 from behave import given, when, then
-
 from features.pages.DashboardPage import DashboardPage
 from features.pages.PeoplePage import PeoplePage
 from utilities.UniqueDataGenerator import UniqueDataGenerator
-
 data_generator = UniqueDataGenerator()
 
 
@@ -32,14 +30,14 @@ def step_impl(context):
 def step_impl(context):
     people_page = PeoplePage(context.driver)
     unique_first_name = data_generator.generate_unique_name()
-    people_page.fill_firstname_field(unique_first_name)
+    people_page.fill_people_firstname_field(unique_first_name)
 
 
 @when(u'I Fill the Lastname field')
 def step_impl(context):
     people_page = PeoplePage(context.driver)
     unique_last_name = data_generator.generate_unique_lastname()
-    people_page.fill_lastname_field(unique_last_name)
+    people_page.fill_people_lastname_field(unique_last_name)
 
 
 @when(u'I select a Company from Company field')

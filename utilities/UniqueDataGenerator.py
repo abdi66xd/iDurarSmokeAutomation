@@ -5,7 +5,7 @@ from faker import Faker
 class UniqueDataGenerator:
     def __init__(self):
         self.faker = Faker()
-        self.generated_data = {"emails": [], "phone_numbers": [], "websites": [], "names": [], "lastnames": []}
+        self.generated_data = {"emails": [], "phone_numbers": [], "websites": [], "names": [], "lastnames": [], "company_names": []}
 
     def generate_unique_name(self):
         name = self.faker.first_name()
@@ -41,3 +41,10 @@ class UniqueDataGenerator:
             website = self.faker.url()
         self.generated_data["websites"].append(website)
         return website
+
+    def generate_unique_company_name(self):
+        company_name = self.faker.company()
+        while company_name in self.generated_data["company_names"]:
+            company_name = self.faker.company()
+        self.generated_data["company_names"].append(company_name)
+        return company_name
