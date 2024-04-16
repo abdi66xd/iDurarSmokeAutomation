@@ -12,3 +12,9 @@ class WaitManager:
         WebDriverWait(driver, timeout).until(
             lambda driver: driver.execute_script("return document.readyState") == "complete"
         )
+
+    @classmethod
+    def wait_for_url_change(cls, driver, current_url, timeout=10):
+        WebDriverWait(driver, timeout).until(
+            lambda driver: driver.current_url != current_url
+        )
