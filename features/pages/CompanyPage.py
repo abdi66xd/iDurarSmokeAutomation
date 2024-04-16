@@ -1,7 +1,7 @@
 import time
 
 from selenium.common import TimeoutException, NoSuchElementException
-from selenium.webdriver import ActionChains
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
@@ -46,24 +46,19 @@ class CompanyPage:
         time.sleep(3)
         company_contact_dropdown.click()
         time.sleep(3)
-        company_contact_option = WaitManager.wait_for_element(self.driver, company_contact_options_locator)
+        company_contact_dropdown.send_keys(Keys.ARROW_DOWN)
         time.sleep(3)
-        company_contact_option.click()
+        company_contact_dropdown.send_keys(Keys.ENTER)
 
     def select_company_country_field(self):
-        try:
-            time.sleep(3)
-            company_contact_dropdown = WaitManager.wait_for_element(self.driver, company_contact_locator)
-            time.sleep(3)
-            company_contact_dropdown.click()
-            time.sleep(3)
-            company_contact_option = WaitManager.wait_for_element(self.driver, company_contact_options_locator)
-            time.sleep(3)
-            company_contact_option.click()
-
-            return True
-        except NoSuchElementException:
-            return False
+        time.sleep(3)
+        company_contact_dropdown = WaitManager.wait_for_element(self.driver, company_contact_locator)
+        time.sleep(3)
+        company_contact_dropdown.click()
+        time.sleep(3)
+        company_contact_dropdown.send_keys(Keys.ARROW_DOWN)
+        time.sleep(3)
+        company_contact_dropdown.send_keys(Keys.ENTER)
 
     def fill_company_phone_field(self, company_phone):
         company_phone_field = WaitManager.wait_for_element(self.driver, company_phone_locator)
