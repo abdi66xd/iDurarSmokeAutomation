@@ -6,6 +6,7 @@ from utilities.UniqueDataGenerator import UniqueDataGenerator
 
 data_generator = UniqueDataGenerator()
 
+
 @when(u'I click the Leads tab')
 def step_impl(context):
     dashboard_page = DashboardPage(context.driver)
@@ -20,28 +21,28 @@ def step_impl(context):
     context.lead_page.click_add_new_leads_button()
 
 
-@when(u'I select the Lead type field')
+@when(u'I tab the Lead type field')
 def step_impl(context):
     lead_page = LeadPage(context.driver)
     context.lead_page = lead_page
     context.lead_page.select_lead_type_field()
 
 
-@when(u'I select Lead Status field')
+@when(u'I tab Lead Status field')
 def step_impl(context):
     lead_page = LeadPage(context.driver)
     context.lead_page = lead_page
     context.lead_page.select_lead_status_field()
 
 
-@when(u'I select Lead Source field')
+@when(u'I tab Lead Source field')
 def step_impl(context):
     lead_page = LeadPage(context.driver)
     context.lead_page = lead_page
     context.lead_page.select_lead_source_field()
 
 
-@when(u'I click Lead People field')
+@when(u'I tab Lead People field')
 def step_impl(context):
     lead_page = LeadPage(context.driver)
     context.lead_page = lead_page
@@ -63,6 +64,21 @@ def step_impl(context):
     context.lead_page.click_submit_new_lead_button()
 
 
+@when(u'I tab only on the lead type field')
+def step_impl(context):
+    lead_page = LeadPage(context.driver)
+    context.lead_page = lead_page
+    context.lead_page.tab_lead_people_field()
+
+
+@when(u'I tab only on the people type field')
+def step_impl(context):
+    lead_page = LeadPage(context.driver)
+    context.lead_page = lead_page
+    context.lead_page.tab_lead_people_field()
+
 @then(u'I should see a success confirmation pop up for the new lead')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I should see a success confirmation pop up for the new lead')
+    lead_page = LeadPage(context.driver)
+    context.company_page = lead_page
+    assert lead_page.is_lead_submitted_popup_displayed()
