@@ -5,3 +5,4 @@ email_element_locator = (By.XPATH, "//p[normalize-space()='abdiasalpire12@gmail.
 logo_image_locator = (By.XPATH, "//img[@src='/assets/logo-text-B-YMIDGj.svg']")
 people_tab_locator = (By.XPATH, "//a[normalize-space()='Peoples']")
 companies_tab_locator = (By.XPATH, "//a[normalize-space()='Companies']")
+leads_tab_locator = (By.XPATH, "//a[normalize-space()='Leads']")
