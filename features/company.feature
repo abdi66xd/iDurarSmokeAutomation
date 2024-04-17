@@ -24,8 +24,6 @@ Scenario: Add a new Company using all fields
   When I click the companies tab
   And I click Add new Company button
   And I Fill the Company Name field
-  And I select a Company Contact from Contact field
-  And I select a Company Country from Country field
   And I Fill the Company Phone field
   And I Fill the Company Email field
   And I Fill the Company Website field

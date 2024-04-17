@@ -1,6 +1,6 @@
 from selenium.common import TimeoutException
 from features.locators.PeopleLocators import people_submitted_popup_locator, submit_new_person_button_locator, \
-    last_name_locator, first_name_locator, new_person_button_locator
+    last_name_locator, first_name_locator, new_person_button_locator, people_phone_number_locator, people_email_locator
 from utilities.WaitManager import WaitManager
 
 
@@ -37,3 +37,13 @@ class PeoplePage:
             return True
         except TimeoutException:
             return False
+
+    def fill_people_phone_field(self, people_phone_number):
+        people_phone_number_field = WaitManager.wait_for_element(self.driver, people_phone_number_locator)
+        people_phone_number_field.clear()
+        people_phone_number_field.send_keys(people_phone_number)
+
+    def fill_people_email_field(self, people_email):
+        people_email_field = WaitManager.wait_for_element(self.driver, people_email_locator)
+        people_email_field.clear()
+        people_email_field.send_keys(people_email)

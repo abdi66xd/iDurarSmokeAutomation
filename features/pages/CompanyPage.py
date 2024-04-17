@@ -7,7 +7,7 @@ from selenium.webdriver.support.select import Select
 
 from features.locators.CompanyLocators import add_new_company_locator, company_name_locator, company_email_locator, \
     company_submitted_pop_up_locator, company_submit_button_locator, company_contact_locator, company_phone_locator, \
-    company_country_locator, company_website_locator, company_contact_options_locator
+    company_country_locator, company_website_locator
 from utilities.WaitManager import WaitManager
 
 
@@ -41,24 +41,16 @@ class CompanyPage:
             return False
 
     def select_company_contact_field(self):
-        time.sleep(3)
         company_contact_dropdown = WaitManager.wait_for_element(self.driver, company_contact_locator)
-        time.sleep(3)
         company_contact_dropdown.click()
-        time.sleep(3)
         company_contact_dropdown.send_keys(Keys.ARROW_DOWN)
-        time.sleep(3)
         company_contact_dropdown.send_keys(Keys.ENTER)
 
     def select_company_country_field(self):
-        time.sleep(3)
-        company_contact_dropdown = WaitManager.wait_for_element(self.driver, company_contact_locator)
-        time.sleep(3)
-        company_contact_dropdown.click()
-        time.sleep(3)
-        company_contact_dropdown.send_keys(Keys.ARROW_DOWN)
-        time.sleep(3)
-        company_contact_dropdown.send_keys(Keys.ENTER)
+        company_country_dropdown = WaitManager.wait_for_element(self.driver, company_country_locator)
+        company_country_dropdown.click()
+        company_country_dropdown.send_keys(Keys.ARROW_DOWN)
+        company_country_dropdown.send_keys(Keys.ENTER)
 
     def fill_company_phone_field(self, company_phone):
         company_phone_field = WaitManager.wait_for_element(self.driver, company_phone_locator)

@@ -2,6 +2,7 @@ from behave import given, when, then
 from features.pages.DashboardPage import DashboardPage
 from features.pages.PeoplePage import PeoplePage
 from utilities.UniqueDataGenerator import UniqueDataGenerator
+
 data_generator = UniqueDataGenerator()
 
 
@@ -40,24 +41,18 @@ def step_impl(context):
     people_page.fill_people_lastname_field(unique_last_name)
 
 
-@when(u'I select a Company from Company field')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When I select a Company from Company field')
-
-
-@when(u'I select a Country from Country field')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When I select a Country from Country field')
-
-
 @when(u'I Fill the Phone field')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I Fill the Phone field')
+    people_page = PeoplePage(context.driver)
+    unique_phone_number = data_generator.generate_unique_phone_number()
+    people_page.fill_people_phone_field(unique_phone_number)
 
 
 @when(u'I Fill the Email field')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I Fill the Email field')
+    people_page = PeoplePage(context.driver)
+    unique_email = data_generator.generate_unique_email()
+    people_page.fill_people_email_field(unique_email)
 
 
 @when(u'I Click Submit new person button')
@@ -66,12 +61,7 @@ def step_impl(context):
     people_page.click_submit_new_person_button()
 
 
-@then(u'I should see the submitted information on a new row of People list table')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I should see the submitted information on a new row of People list table')
-
-
-@when("I Should see a success alert for the person created")
+@then("I Should see a success alert for the person created")
 def step_impl(context):
     people_page = PeoplePage(context.driver)
     assert people_page.is_people_submitted_popup_displayed()
