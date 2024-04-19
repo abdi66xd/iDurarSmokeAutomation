@@ -14,7 +14,7 @@ def before_scenario(context, scenario):
         context.driver = webdriver.Edge()
     sleep(3)
     context.driver.maximize_window()
-    context.driver.get("https://cloud.idurarapp.com/login")
+    context.driver.get(ConfigReader.read_configuration("Basic Information", "url"))
 
 
 def after_scenario(context, scenario):
