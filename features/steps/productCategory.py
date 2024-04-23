@@ -51,6 +51,13 @@ def step_impl(context):
     product_category_page.click_product_category_submit_button()
 
 
+@when(u'I select a color for product category field')
+def step_impl(context):
+    product_category_page = ProductsCategoryPage(context.driver)
+    context.product_category_page = product_category_page
+    product_category_page.select_color_product_category()
+
+
 @then(u'I should see a success confirmation pop up for the new product category')
 def step_impl(context):
     product_category_page = ProductsCategoryPage(context.driver)

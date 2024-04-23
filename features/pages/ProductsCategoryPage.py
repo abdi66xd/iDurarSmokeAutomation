@@ -5,7 +5,7 @@ from selenium.webdriver import ActionChains, Keys
 from features.locators.LeadsLocators import add_new_lead_button, lead_confirmation_pop_up_locator
 from features.locators.ProductsCategoriesLocators import name_product_category_locator, \
     description_product_category_locator, enabled_product_category_locator, submit_button_product_category_locator, \
-    pop_up_product_category_locator
+    pop_up_product_category_locator, color_product_category_dropdown
 from utilities.WaitManager import WaitManager
 
 
@@ -31,10 +31,23 @@ class ProductsCategoryPage:
 
     def click_enabled_product_category(self):
         product_enabled = WaitManager.wait_for_element(self.driver, enabled_product_category_locator)
-        product_enabled.click()
+        time.sleep(3)
+        product_enabled.send_keys(Keys.TAB)
+        time.sleep(3)
+        product_enabled.send_keys(Keys.ENTER)
+
+    def select_color_product_category(self):
+        color_product_category = WaitManager.wait_for_element(self.driver, color_product_category_dropdown)
+        time.sleep(2)
+        color_product_category.send_keys(Keys.TAB)
+        time.sleep(2)
+        color_product_category.send_keys(Keys.ARROW_DOWN)
+        time.sleep(3)
+        color_product_category.send_keys(Keys.ENTER)
 
     def click_product_category_submit_button(self):
-        product_category_submit_button = WaitManager.wait_for_element(self.driver, submit_button_product_category_locator)
+        product_category_submit_button = WaitManager.wait_for_element(self.driver,
+                                                                      submit_button_product_category_locator)
         product_category_submit_button.click()
 
     def is_product_category_submitted_popup_displayed(self):
@@ -43,5 +56,3 @@ class ProductsCategoryPage:
             return True
         except TimeoutException:
             return False
-
-

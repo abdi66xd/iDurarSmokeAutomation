@@ -14,6 +14,7 @@ Background:
     And I click Add new Product Category button
     And I fill product category name field
     And I fill product category description field
+    And I select a color for product category field
     And I click enable product category combobox
     And I Click Product category Submit button
     Then I should see a success confirmation pop up for the new product category
