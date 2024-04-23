@@ -1,6 +1,7 @@
 from utilities.WaitManager import WaitManager
 from features.locators.DashboardLocators import logo_image_locator, \
-    email_element_locator, avatar_icon_locator, people_tab_locator, companies_tab_locator, leads_tab_locator
+    email_element_locator, avatar_icon_locator, people_tab_locator, companies_tab_locator, leads_tab_locator, \
+    product_category_tab_locator
 
 
 class DashboardPage:
@@ -35,3 +36,7 @@ class DashboardPage:
     def click_leads_tab(self):
         companies_tab = WaitManager.wait_for_element(self.driver, leads_tab_locator)
         companies_tab.click()
+
+    def click_products_category_tab(self):
+        products_category_tab = WaitManager.wait_for_element(self.driver, product_category_tab_locator)
+        products_category_tab.click()

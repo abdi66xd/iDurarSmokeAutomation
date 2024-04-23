@@ -11,14 +11,15 @@ class LeadPage:
         self.driver = driver
 
     def click_add_new_leads_button(self):
+        time.sleep(5)
         lead_button = WaitManager.wait_for_element(self.driver, add_new_lead_button)
-        time.sleep(2)
+        time.sleep(5)
         lead_button.click()
 
     def select_lead_type_field(self):
         action_chains = ActionChains(self.driver)
         action_chains.send_keys(Keys.TAB * 5)
-        action_chains.send_keys(Keys.ENTER * 2)  # Dos enters
+        action_chains.send_keys(Keys.ENTER * 2)
         action_chains.perform()
 
     def select_lead_status_field(self):

@@ -5,7 +5,18 @@ from faker import Faker
 class UniqueDataGenerator:
     def __init__(self):
         self.faker = Faker()
-        self.generated_data = {"emails": [], "phone_numbers": [], "websites": [], "names": [], "lastnames": [], "company_names": []}
+        self.generated_data = {
+            "emails": [],
+            "phone_numbers": [],
+            "websites": [],
+            "names": [],
+            "lastnames": [],
+            "company_names": [],
+            "product_names": [],
+            "product_descriptions": [],
+            "expense_names": [],
+            "expense_descriptions": []
+        }
 
     def generate_unique_name(self):
         name = self.faker.first_name()
@@ -48,3 +59,31 @@ class UniqueDataGenerator:
             company_name = self.faker.company()
         self.generated_data["company_names"].append(company_name)
         return company_name
+
+    def generate_unique_product_name(self):
+        product_name = self.faker.word()
+        while product_name in self.generated_data["product_names"]:
+            product_name = self.faker.word()
+        self.generated_data["product_names"].append(product_name)
+        return product_name
+
+    def generate_unique_product_description(self):
+        product_description = self.faker.sentence()
+        while product_description in self.generated_data["product_descriptions"]:
+            product_description = self.faker.sentence()
+        self.generated_data["product_descriptions"].append(product_description)
+        return product_description
+
+    def generate_unique_expense_name(self):
+        expense_name = self.faker.word()
+        while expense_name in self.generated_data["expense_names"]:
+            expense_name = self.faker.word()
+        self.generated_data["expense_names"].append(expense_name)
+        return expense_name
+
+    def generate_unique_expense_description(self):
+        expense_description = self.faker.sentence()
+        while expense_description in self.generated_data["expense_descriptions"]:
+            expense_description = self.faker.sentence()
+        self.generated_data["expense_descriptions"].append(expense_description)
+        return expense_description

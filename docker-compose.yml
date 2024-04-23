@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8s'
 
 services:
   my_app:
@@ -6,11 +6,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "5232:5000"
+      - "5232:5232"
     depends_on:
       - selenium
 
   selenium:
-    image: selenium/standalone-chrome:latest
+    image: selenium/hub:3.141.59
     ports:
       - "4444:4444"

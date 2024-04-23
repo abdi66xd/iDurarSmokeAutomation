@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-add_new_lead_button = (By.XPATH, "(//button[@type='button'])[2]")
+add_new_lead_button = (By.XPATH, "//body[1]/div[1]/div[1]/div[1]/main[1]/main[1]/div[1]/div[1]/span[1]/div[1]/div[3]/button[1]")
 lead_type_button_dropdown = (By.XPATH, "(//input[@id='type'])[2]")
 lead_people_dropdown = (By.XPATH, "(//input[@id='rc_select_190'])[1]")
 lead_notes_text_area = (By.XPATH, "(//textarea[@id='notes'])[2]")
