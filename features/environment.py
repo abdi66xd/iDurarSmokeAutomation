@@ -1,5 +1,5 @@
+import allure
 from time import sleep
-
 from selenium import webdriver
 from utilities import ConfigReader
 
@@ -15,6 +15,16 @@ def before_scenario(context, scenario):
     sleep(3)
     context.driver.maximize_window()
     context.driver.get(ConfigReader.read_configuration("Basic Information", "url"))
+
+
+@allure.step
+def take_screenshot(context, step_name):
+    allure.attach(context.driver.get_screenshot_as_png(), name=step_name, attachment_type=allure.attachment_type.PNG)
+
+
+def after_step(context, step):
+    if step.status == "failed":
+        take_screenshot(context, step.name)
 
 
 def after_scenario(context, scenario):

@@ -1,4 +1,4 @@
-version: '3.8s'
+version: '3.8'
 
 services:
   my_app:
@@ -11,6 +11,6 @@ services:
       - selenium
 
   selenium:
-    image: selenium/hub:3.141.59
+    image: rbonghi/selenium-standalone-chromium:latest-aarch64
     ports:
       - "4444:4444"

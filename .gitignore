@@ -50,3 +50,4 @@ chromedriver.log
 
 # Configurations
 configurations/config.ini
+allure_reports/
