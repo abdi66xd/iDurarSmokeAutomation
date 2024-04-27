@@ -1,6 +1,6 @@
 # Installation Guide
 
-## Setting up Selenium with Python
+## Setting up Selenium with Python (python 3.12 needed)
 
 1. **Create a Virtual Environment**:
    ```bash
