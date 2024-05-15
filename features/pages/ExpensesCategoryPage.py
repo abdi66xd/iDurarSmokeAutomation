@@ -5,7 +5,9 @@ from selenium.webdriver import ActionChains, Keys
 
 from features.locators.ExpensesCategoriesLocators import add_new_expenses_button_categories_locator, \
     name_expenses_categories_locator, description_expenses_categories_locator, enable_expenses_categories_locator, \
-    color_expenses_categories_locator, submit_button_expenses_categories_locator, popup_expenses_categories_locator
+    color_expenses_categories_locator, submit_button_expenses_categories_locator, popup_expenses_categories_locator, \
+    expenses_name_alert_locator, expenses_description_alert_locator, expenses_color_alert_locator, \
+    expenses_enabled_alert_locator
 
 from utilities.WaitManager import WaitManager
 
@@ -57,3 +59,14 @@ class ExpensesCategoryPage:
             return True
         except TimeoutException:
             return False
+
+    def is_expenses_category_alerts_displayed(self):
+        alert_name = WaitManager.wait_for_element(self.driver, expenses_name_alert_locator)
+        alert_description = WaitManager.wait_for_element(self.driver, expenses_description_alert_locator)
+        alert_color = WaitManager.wait_for_element(self.driver, expenses_color_alert_locator)
+        alert_enabled = WaitManager.wait_for_element(self.driver, expenses_enabled_alert_locator)
+        if not (alert_name.is_displayed() and alert_description.is_displayed() and alert_color.is_displayed() and alert_enabled.is_displayed()):
+            raise AssertionError("Some alert(s) were not displayed for the expenses category.")
+
+        return True
+

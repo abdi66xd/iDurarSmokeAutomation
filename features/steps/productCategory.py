@@ -62,3 +62,17 @@ def step_impl(context):
 def step_impl(context):
     product_category_page = ProductsCategoryPage(context.driver)
     assert product_category_page.is_product_category_submitted_popup_displayed()
+
+
+@when("I Click product category Submit button without filling in required fields")
+def step_impl(context):
+    product_category_page = ProductsCategoryPage(context.driver)
+    context.product_category_page = product_category_page
+    product_category_page.click_product_category_submit_button()
+
+
+@then("I should see alerts over the Name, Description, Color, and Enabled fields for the Product section")
+def step_impl(context):
+    products_category_page = ProductsCategoryPage(context.driver)
+    context.product_category_page = products_category_page
+    assert products_category_page.is_products_category_alerts_displayed()

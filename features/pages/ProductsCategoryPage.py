@@ -5,7 +5,8 @@ from selenium.webdriver import ActionChains, Keys
 from features.locators.LeadsLocators import add_new_lead_button, lead_confirmation_pop_up_locator
 from features.locators.ProductsCategoriesLocators import name_product_category_locator, \
     description_product_category_locator, enabled_product_category_locator, submit_button_product_category_locator, \
-    pop_up_product_category_locator, color_product_category_dropdown
+    pop_up_product_category_locator, color_product_category_dropdown, product_name_alert_locator, \
+    product_description_alert_locator, product_color_alert_locator, product_enabled_alert_locator
 from utilities.WaitManager import WaitManager
 
 
@@ -56,3 +57,13 @@ class ProductsCategoryPage:
             return True
         except TimeoutException:
             return False
+
+    def is_products_category_alerts_displayed(self):
+        alert_name = WaitManager.wait_for_element(self.driver, product_name_alert_locator)
+        alert_description = WaitManager.wait_for_element(self.driver, product_description_alert_locator)
+        alert_color = WaitManager.wait_for_element(self.driver, product_color_alert_locator)
+        alert_enabled = WaitManager.wait_for_element(self.driver, product_enabled_alert_locator)
+        if not (alert_name.is_displayed() and alert_description.is_displayed() and alert_color.is_displayed() and alert_enabled.is_displayed()):
+            raise AssertionError("Some alert(s) were not displayed for the products category.")
+
+        return True

@@ -9,3 +9,7 @@ pop_up_product_category_locator = (By.CSS_SELECTOR, ".ant-notification-notice-wr
 drawer = (By.XPATH, "//button[@aria-label='Close']")
 drawer_content = (By.XPATH, "//div[@class='ant-drawer-content-wrapper']")
 color_product_category_dropdown = (By.XPATH, "(//input[@id='color'])[2]")
+product_name_alert_locator = (By.XPATH, "//div[contains(text(),'Please enter Name')]")
+product_description_alert_locator = (By.XPATH, "//div[contains(text(),'Please enter Description')]")
+product_color_alert_locator = (By.XPATH, "//div[contains(text(),'Please enter Color')]")
+product_enabled_alert_locator = (By.XPATH, "//div[contains(text(),'Please enter Enabled')]")

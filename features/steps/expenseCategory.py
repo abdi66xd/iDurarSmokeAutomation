@@ -62,3 +62,17 @@ def step_impl(context):
 def step_impl(context):
     expenses_category_page = ExpensesCategoryPage(context.driver)
     assert expenses_category_page.is_expenses_category_submitted_popup_displayed()
+
+
+@when("I Click expense category Submit button without filling in required fields")
+def step_impl(context):
+    expenses_category_page = ExpensesCategoryPage(context.driver)
+    context.product_category_page = expenses_category_page
+    expenses_category_page.click_expenses_category_submit_button()
+
+
+@then("I should see alerts over the Name, Description, Color, and Enabled fields for Expenses category section")
+def step_impl(context):
+    expenses_category_page = ExpensesCategoryPage(context.driver)
+    context.product_category_page = expenses_category_page
+    assert expenses_category_page.is_expenses_category_alerts_displayed()

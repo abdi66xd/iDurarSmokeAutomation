@@ -18,3 +18,11 @@ Background:
     And I click enable product category combobox
     And I Click Product category Submit button
     Then I should see a success confirmation pop up for the new product category
+
+  @AlertsDisplayedForProductsCategory
+Scenario: Alerts displayed when add a product category without filling mandatory fields
+  Given I am located on the dashboard
+  When I click the products category tab
+  And I click Add new Product Category button
+  And I Click product category Submit button without filling in required fields
+  Then I should see alerts over the Name, Description, Color, and Enabled fields for the Product section
