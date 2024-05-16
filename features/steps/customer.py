@@ -18,11 +18,18 @@ def step_impl(context):
     customer_page.click_add_new_client_button()
 
 
-@when(u'I select a client type')
+@when(u'I select a people client type')
 def step_impl(context):
     customer_page = CustomerPage(context.driver)
     context.company_page = customer_page
-    customer_page.select_client_type_field()
+    customer_page.select_people_client_type_field()
+
+
+@when(u'I select a company client type')
+def step_impl(context):
+    customer_page = CustomerPage(context.driver)
+    context.company_page = customer_page
+    customer_page.select_company_client_type_field()
 
 
 @when(u'I select people linked to the client')
@@ -46,7 +53,7 @@ def step_impl(context):
     customer_page.click_submit_new_client_button()
 
 
-@then(u'I should see a success confirmation pop up for the new client created')
+@then(u'I should see a 403 error')
 def step_impl(context):
     customer_page = CustomerPage(context.driver)
     context.company_page = customer_page
