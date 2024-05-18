@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 new_person_button_locator = (By.XPATH,
-                             "//button[@class='ant-btn css-16v3ahg ant-btn-primary']")
+                             "(//button[@class='ant-btn css-16v3ahg ant-btn-primary'])[1]")
 first_name_locator = (By.XPATH, "(//input[@id='firstname'])[2]")
 last_name_locator = (By.XPATH, "(//input[@id='lastname'])[2]")
 submit_new_person_button_locator = (By.XPATH, "//div[@class='BottomCollapseBox']//div//button[@type='submit']")

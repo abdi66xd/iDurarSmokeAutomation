@@ -30,30 +30,31 @@ class DashboardPage:
 
     def click_people_tab(self):
         people_tab = WaitManager.wait_for_element(self.driver, people_tab_locator)
-        time.sleep(1)
+        time.sleep(3)
         people_tab.click()
 
     def click_companies_tab(self):
         companies_tab = WaitManager.wait_for_element(self.driver, companies_tab_locator)
-        time.sleep(1)
+        time.sleep(3)
         companies_tab.click()
 
     def click_leads_tab(self):
         companies_tab = WaitManager.wait_for_element(self.driver, leads_tab_locator)
-        time.sleep(1)
+        time.sleep(3)
         companies_tab.click()
 
     def click_products_category_tab(self):
         products_category_tab = WaitManager.wait_for_element(self.driver, product_category_tab_locator)
-        time.sleep(1)
+        time.sleep(3)
         products_category_tab.click()
 
     def click_expenses_category_tab(self):
         expenses_category_tab = WaitManager.wait_for_element(self.driver, expenses_category_tab_locator)
-        time.sleep(1)
+        time.sleep(3)
         expenses_category_tab.click()
 
     def click_customers_tab(self):
+        # time.sleep(3)
         customers_category_tab = WaitManager.wait_for_element(self.driver, customer_category_tab_locator)
-        time.sleep(1)
+        # time.sleep(3)
         customers_category_tab.click()

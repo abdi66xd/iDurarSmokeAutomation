@@ -64,19 +64,6 @@ def step_impl(context):
     context.lead_page.click_submit_new_lead_button()
 
 
-@when(u'I tab only on the lead type field')
-def step_impl(context):
-    lead_page = LeadPage(context.driver)
-    context.lead_page = lead_page
-    context.lead_page.tab_lead_people_field()
-
-
-@when(u'I tab only on the people type field')
-def step_impl(context):
-    lead_page = LeadPage(context.driver)
-    context.lead_page = lead_page
-    context.lead_page.tab_lead_people_field()
-
 @then(u'I should see a success confirmation pop up for the new lead')
 def step_impl(context):
     lead_page = LeadPage(context.driver)

@@ -15,9 +15,9 @@ class ProductsCategoryPage:
         self.driver = driver
 
     def click_add_new_product_category_button(self):
-        time.sleep(2)
+        time.sleep(4)
         lead_button = WaitManager.wait_for_element(self.driver, add_new_lead_button)
-        time.sleep(2)
+        time.sleep(4)
         lead_button.click()
 
     def fill_product_category_name_field(self, product_category_name_input):
