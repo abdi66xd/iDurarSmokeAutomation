@@ -3,7 +3,8 @@ import time
 from utilities.WaitManager import WaitManager
 from features.locators.DashboardLocators import logo_image_locator, \
     email_element_locator, avatar_icon_locator, people_tab_locator, companies_tab_locator, leads_tab_locator, \
-    product_category_tab_locator, expenses_category_tab_locator, customer_category_tab_locator
+    product_category_tab_locator, expenses_category_tab_locator, customer_category_tab_locator, products_tab_locator, \
+    invoices_tab_locator, proformas_invoices_tab_locator, expenses_tab_locator
 
 
 class DashboardPage:
@@ -54,7 +55,26 @@ class DashboardPage:
         expenses_category_tab.click()
 
     def click_customers_tab(self):
-        # time.sleep(3)
         customers_category_tab = WaitManager.wait_for_element(self.driver, customer_category_tab_locator)
-        # time.sleep(3)
+        time.sleep(3)
         customers_category_tab.click()
+
+    def click_products_tab(self):
+        product_tab = WaitManager.wait_for_element(self.driver, products_tab_locator)
+        time.sleep(3)
+        product_tab.click()
+
+    def click_invoices_tab(self):
+        invoices_tab = WaitManager.wait_for_element(self.driver, invoices_tab_locator)
+        time.sleep(3)
+        invoices_tab.click()
+
+    def click_proforma_invoices_tab(self):
+        proforma_invoices_tab = WaitManager.wait_for_element(self.driver, proformas_invoices_tab_locator)
+        time.sleep(3)
+        proforma_invoices_tab.click()
+
+    def click_expenses_tab(self):
+        expenses_tab = WaitManager.wait_for_element(self.driver, expenses_tab_locator)
+        time.sleep(3)
+        expenses_tab.click()

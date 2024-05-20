@@ -15,7 +15,8 @@ class UniqueDataGenerator:
             "product_names": [],
             "product_descriptions": [],
             "expense_names": [],
-            "expense_descriptions": []
+            "expense_descriptions": [],
+            "product_references": []
         }
 
     def generate_unique_name(self):
@@ -87,3 +88,14 @@ class UniqueDataGenerator:
             expense_description = self.faker.sentence()
         self.generated_data["expense_descriptions"].append(expense_description)
         return expense_description
+
+    def generate_unique_product_price(self):
+        product_price = round(self.faker.pyfloat(left_digits=3, right_digits=2, positive=True, min_value=1.0, max_value=1000.0), 2)
+        return product_price
+
+    def generate_unique_product_reference(self):
+        product_reference = self.faker.bothify(text='???-########')
+        while product_reference in self.generated_data["product_references"]:
+            product_reference = self.faker.bothify(text='???-########')
+        self.generated_data["product_references"].append(product_reference)  # Use append() instead of add()
+        return product_reference
