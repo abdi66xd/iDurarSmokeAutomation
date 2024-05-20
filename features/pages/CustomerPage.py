@@ -19,6 +19,7 @@ class CustomerPage:
 
     def click_add_new_client_button(self):
         client_button = WaitManager.wait_for_element(self.driver, add_new_client_button)
+        time.sleep(2)
         client_button.click()
 
     def is_client_submitted_popup_displayed(self):

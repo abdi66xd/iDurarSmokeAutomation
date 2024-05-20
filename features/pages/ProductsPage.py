@@ -21,7 +21,9 @@ class ProductsPage:
 
     def click_add_new_product_button(self):
         WaitManager.wait_for_page_load(self.driver)
+        time.sleep(2)
         new_product_button = WaitManager.wait_for_element(self.driver, add_new_product_locator)
+        time.sleep(2)
         new_product_button.click()
 
     def fill_product_name_field(self, product_name):

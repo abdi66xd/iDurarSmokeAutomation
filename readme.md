@@ -20,6 +20,19 @@
    ```
    This command will install all the required packages listed in the `requirements.txt` file.
 
+
+4. **Set up chrome driver**:
+   ```bash
+   brew install --cask chromedriver
+   ```
+   This command will install chrome driver needed to execute chrome instances of selenium
+
+5. **Set up gecko driver**:
+   ```bash
+   brew install geckodriver
+   ```
+   This command will install gecko driver needed to execute firefox instances of selenium
+
 ## Running the Tests
 
 To run the tests, execute the following command:
@@ -42,3 +55,4 @@ This command runs the tests using Behave framework and generates Allure reports 
    allure serve allure_reports/
    ```
    This command serves the Allure report, allowing you to view it in your web browser.
+
