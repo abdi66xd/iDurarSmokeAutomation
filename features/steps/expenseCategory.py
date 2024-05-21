@@ -1,5 +1,4 @@
 from behave import when, then
-from features.pages.CompanyPage import CompanyPage
 from features.pages.DashboardPage import DashboardPage
 from features.pages.ExpensesCategoryPage import ExpensesCategoryPage
 from utilities.UniqueDataGenerator import UniqueDataGenerator

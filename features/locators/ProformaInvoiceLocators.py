@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-add_new_proforma_invoice_button = (By.XPATH, "(//button[@class='ant-btn css-16v3ahg ant-btn-primary'])[1]")
+add_new_proforma_invoice_button = (By.CSS_SELECTOR, "button[class='ant-btn css-16v3ahg ant-btn-primary']")
 client_proforma_invoice_field = (By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/main[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]")
 item_name_proforma_invoice_field = (By.XPATH, "(//input[@id='items_0_itemName'])[1]")
 quantity_proforma_invoice_field = (By.XPATH, "(//input[@id='items_0_quantity'])[1]")

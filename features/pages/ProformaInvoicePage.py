@@ -29,7 +29,7 @@ class ProformaInvoicePage:
         WaitManager.wait_for_page_load(self.driver)
         time.sleep(2)
         new_product_button = WaitManager.wait_for_element(self.driver, add_new_proforma_invoice_button)
-        time.sleep(2)
+        time.sleep(4)
         new_product_button.click()
 
     def select_client_proforma_invoice_field(self):
