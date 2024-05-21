@@ -1,3 +1,4 @@
+import os
 import time
 
 from selenium.common import TimeoutException
@@ -7,13 +8,17 @@ from features.locators.ProformaInvoiceLocators import add_new_proforma_invoice_b
     item_name_proforma_invoice_field, quantity_proforma_invoice_field, price_proforma_invoice_field, \
     save_proforma_invoice_button, proforma_invoice_notification_xpath, proforma_invoice_client_alert, \
     proforma_invoice_tax_alert, proforma_invoice_price_alert, proforma_invoice_quantity_alert, \
-    proforma_invoice_item_name_alert, proforma_add_new_item_button
+    proforma_invoice_item_name_alert, proforma_add_new_item_button, firs_option_proformas, download_option_proformas
+from utilities.OsHelpers import get_download_directory
 from utilities.WaitManager import WaitManager
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+
+
 
 
 class ProformaInvoicePage:
@@ -120,3 +125,25 @@ class ProformaInvoicePage:
         submit_new_item = WaitManager.wait_for_element(self.driver, proforma_add_new_item_button)
         time.sleep(2)
         submit_new_item.click()
+
+    def click_options_proforma_list(self):
+        WaitManager.wait_for_page_load(self.driver)
+        first_option = WaitManager.wait_for_element(self.driver, firs_option_proformas)
+        time.sleep(5)
+        first_option.click()
+
+    def click_download_option(self):
+        WaitManager.wait_for_page_load(self.driver)
+        download_option = WaitManager.wait_for_element(self.driver, download_option_proformas)
+        download_option.click()
+
+    def is_proforma_pdf_downloaded(self, timeout=30):
+        for _ in range(timeout):
+            files = os.listdir(get_download_directory())
+            if any(file.endswith(".pdf") for file in files):
+                return True
+            time.sleep(1)
+        return False
+
+
+

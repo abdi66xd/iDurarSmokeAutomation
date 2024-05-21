@@ -14,3 +14,5 @@ invoice_item_name_alert = (By.XPATH, "(//div[contains(text(),'Missing itemName n
 invoice_quantity_alert = (By.XPATH, "(//div[contains(text(),'Please enter 0,quantity')])[1]")
 invoice_price_alert = (By.XPATH, "(//div[contains(text(),'Please enter 0,price')])[1]")
 invoice_tax_alert = (By.XPATH, "(//div[contains(text(),'Please enter taxRate')])[1]")
+firs_option_invoices = (By.XPATH, "//span[@aria-label='ellipsis']//*[name()='svg']")
+download_option_invoices = (By.XPATH, "(//span[normalize-space()='Download'])[1]")

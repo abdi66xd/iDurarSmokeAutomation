@@ -27,3 +27,11 @@ Background:
   And I click Add new invoice button
   And I click invoice submit button
   Then I should see alerts over the Client,Item, Quantity, Price and Tax fields for invoice section
+
+  @DownloadPDFProformaInvoice
+  Scenario: Download a  Invoice pdf
+  Given I am located on the dashboard
+  When I click the invoice tab
+  And I click the options of the first row for invoice list
+  And I click download button for invoice list
+  Then I should download the PDF for invoice list

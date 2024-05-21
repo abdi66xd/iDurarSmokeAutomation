@@ -1,3 +1,4 @@
+import os
 import time
 
 from selenium.common import TimeoutException
@@ -6,7 +7,8 @@ from selenium.webdriver import Keys, ActionChains
 from features.locators.InvoiceLocators import add_new_invoice_button, client_invoice_field, tax_rate_invoice_dropdown, \
     item_name_invoice_field, quantity_invoice_field, price_invoice_field, invoice_notification_xpath, \
     save_invoice_button, add_new_item_button, invoice_client_alert, invoice_item_name_alert, invoice_quantity_alert, \
-    invoice_price_alert, invoice_tax_alert
+    invoice_price_alert, invoice_tax_alert, firs_option_invoices, download_option_invoices
+from utilities.OsHelpers import get_download_directory
 from utilities.WaitManager import WaitManager
 
 from selenium.webdriver.common.by import By
@@ -115,3 +117,24 @@ class InvoicePage:
         submit_new_item = WaitManager.wait_for_element(self.driver, add_new_item_button)
         time.sleep(2)
         submit_new_item.click()
+
+    def click_options_proforma_list_for_invoices(self):
+        WaitManager.wait_for_page_load(self.driver)
+        first_option = WaitManager.wait_for_element(self.driver, firs_option_invoices)
+        time.sleep(5)
+        first_option.click()
+
+    def click_download_option_for_invoices(self):
+        WaitManager.wait_for_page_load(self.driver)
+        download_option = WaitManager.wait_for_element(self.driver, download_option_invoices)
+        download_option.click()
+
+    def is_invoice_pdf_downloaded(self, timeout=30):
+        flag = True
+        for _ in range(timeout):
+            files = os.listdir(get_download_directory())
+            if any(file.endswith(".pdf") for file in files):
+                return flag
+            time.sleep(2)
+        return flag
+

@@ -86,3 +86,24 @@ def step_impl(context):
     proforma_invoice_page = ProformaInvoicePage(context.driver)
     context.proforma_invoice_page = proforma_invoice_page
     assert proforma_invoice_page.are__proforma_invoice_alerts_displayed()
+
+
+@when(u'I click the options of the first row for proforma invoice list')
+def step_impl(context):
+    proforma_invoice_page = ProformaInvoicePage(context.driver)
+    context.proforma_invoice_page = proforma_invoice_page
+    proforma_invoice_page.click_options_proforma_list()
+
+
+@when(u'I click download button for proforma invoice list')
+def step_impl(context):
+    proforma_invoice_page = ProformaInvoicePage(context.driver)
+    context.proforma_invoice_page = proforma_invoice_page
+    proforma_invoice_page.click_options_proforma_list()
+
+
+@then(u'I should download the PDF for proforma invoice list')
+def step_impl(context):
+    proforma_invoice_page = ProformaInvoicePage(context.driver)
+    context.proforma_invoice_page = proforma_invoice_page
+    proforma_invoice_page.is_proforma_pdf_downloaded()

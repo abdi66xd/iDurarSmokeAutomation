@@ -27,3 +27,11 @@ Background:
   And I click Add new proforma invoice button
   And I click proforma invoice submit button
   Then I should see alerts over the Client,Item, Quantity, Price and Tax fields for proforma invoice section
+
+  @DownloadPDFProformaInvoice
+  Scenario: Download a Proforma Invoice pdf
+  Given I am located on the dashboard
+  When I click the proforma invoice tab
+  And I click the options of the first row for proforma invoice list
+  And I click download button for proforma invoice list
+  Then I should download the PDF for proforma invoice list
