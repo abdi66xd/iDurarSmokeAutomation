@@ -41,7 +41,7 @@ def step_impl(context):
     invoice_page = InvoicePage(context.driver)
     context.invoice_page = invoice_page
     unique_item_quantity = data_generator.generate_unique_product_price()
-    invoice_page.fill_item_name_field(unique_item_quantity)
+    invoice_page.fill_item_quantity_field(unique_item_quantity)
 
 
 @when(u'I fill the item price field')
@@ -73,8 +73,15 @@ def step_impl(context):
     assert invoice_page.is_invoice_submitted_popup_displayed()
 
 
-@when(u'I click add new item button ')
+@when(u'I click add new item button')
 def step_impl(context):
     invoice_page = InvoicePage(context.driver)
     context.invoice_page = invoice_page
     invoice_page.click_new_item_button()
+
+
+@then(u'I should see alerts over the Client,Item, Quantity, Price and Tax fields for invoice section')
+def step_impl(context):
+    invoice_page = InvoicePage(context.driver)
+    context.invoice_page = invoice_page
+    assert invoice_page.are_invoice_alerts_displayed()

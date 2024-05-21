@@ -1,0 +1,16 @@
+from selenium.webdriver.common.by import By
+
+add_new_proforma_invoice_button = (By.XPATH, "(//button[@class='ant-btn css-16v3ahg ant-btn-primary'])[1]")
+client_proforma_invoice_field = (By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[1]/main[1]/main[1]/div[3]/div[1]/form[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/input[1]")
+item_name_proforma_invoice_field = (By.XPATH, "(//input[@id='items_0_itemName'])[1]")
+quantity_proforma_invoice_field = (By.XPATH, "(//input[@id='items_0_quantity'])[1]")
+price_proforma_invoice_field = (By.XPATH, "(//input[@id='items_0_price'])[1]")
+tax_rate_proforma_invoice_dropdown = (By.CSS_SELECTOR, "div[class='ant-col ant-col-4 ant-col-offset-15 gutter-row css-16v3ahg'] input[role='combobox']")
+save_proforma_invoice_button = (By.XPATH, "(//button[@type='submit'])[1]")
+proforma_invoice_notification_xpath = (By.XPATH, "//div[contains(@class, 'ant-notification-notice-wrapper') and //div[contains(text(), 'Request success')]]")
+proforma_add_new_item_button = (By.XPATH, "(//button[@class='ant-btn css-16v3ahg ant-btn-dashed ant-btn-block'])[1]")
+proforma_invoice_client_alert = (By.XPATH, "(//div[contains(text(),'Please enter Client')])[1]")
+proforma_invoice_item_name_alert = (By.XPATH, "(//div[contains(text(),'Missing itemName name')])[1]")
+proforma_invoice_quantity_alert = (By.XPATH, "(//div[contains(text(),'Please enter 0,quantity')])[1]")
+proforma_invoice_price_alert = (By.XPATH, "(//div[contains(text(),'Please enter 0,price')])[1]")
+proforma_invoice_tax_alert = (By.XPATH, "(//div[contains(text(),'Please enter taxRate')])[1]")
