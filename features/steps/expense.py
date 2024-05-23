@@ -1,4 +1,4 @@
-from behave import when, then
+from behave import when, then, given
 
 from features.pages.ExpensesPage import ExpensesPage
 from features.pages.ProductsPage import ProductsPage
@@ -89,3 +89,21 @@ def step_impl(context):
     assert expense_page.is_expenses_alerts_displayed()
 
 
+@given(u'I have selected spanish language on language dropdown')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given I have selected spanish language on language dropdown')
+
+
+@when(u'I click on the options menu for the first row of expenses list')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I click on the options menu for the first row of expenses list')
+
+
+@when(u'I click show option on the options menu')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When I click show option on the options menu')
+
+
+@then(u'I should see the labels of the row translated to spanish')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then I should see the labels of the row translated to spanish')
