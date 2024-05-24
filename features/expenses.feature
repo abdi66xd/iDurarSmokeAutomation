@@ -51,4 +51,4 @@ Background:
   When I click the expense tab
   And I click on the options menu for the first row of expenses list
   And I click show option on the options menu
-  Then I should see the labels of the row translated to spanish
+  Then I should see the labels for the show section translated to spanish

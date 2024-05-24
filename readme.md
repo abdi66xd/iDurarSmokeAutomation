@@ -41,6 +41,12 @@ behave -f allure_behave.formatter:AllureFormatter -o allure_reports/ features
 ```
 This command runs the tests using Behave framework and generates Allure reports in the `allure_reports/` directory.
 
+To run a single test case by introducing a tag run the following command:
+```bash
+behave -f allure_behave.formatter:AllureFormatter -o allure_reports/ -t example_tag features
+```
+
+
 ## Viewing the Allure Report
 
 1. **Install Allure**:
@@ -56,3 +62,10 @@ This command runs the tests using Behave framework and generates Allure reports 
    ```
    This command serves the Allure report, allowing you to view it in your web browser.
 
+## Cleaning the previous runs
+
+To clean the past runs, execute the following command:
+```bash
+allure generate --clean -o allure_reports/ allure_results/
+```
+This command will flush the results got on the `allure_reports/` directory.

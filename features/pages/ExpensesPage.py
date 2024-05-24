@@ -1,16 +1,19 @@
 import time
 
-from selenium.common import TimeoutException
+from allure_commons.types import AttachmentType
+from selenium.common import TimeoutException, NoSuchElementException
 from selenium.webdriver import Keys, ActionChains
 
 from features.locators.ExpensesLocators import add_new_expenses_locator, expenses_name_locator, \
     expenses_category_locator, expenses_currency_locator, expenses_price_locator, expenses_description_locator, \
     expenses_reference_locator, expenses_submit_locator, expenses_success_submitted_locator, \
-    enter_expenses_name_alert_locator, enter_expenses_category_alert_locator, enter_expenses_price_alert_locator
+    enter_expenses_name_alert_locator, enter_expenses_category_alert_locator, enter_expenses_price_alert_locator, \
+    expenses_first_option_menu, show_option_of_menu, name_show_label, expense_show_label, currency_show_label, \
+    total_show_label, description_show_label, ref_show_label
 from features.locators.ProductsLocators import enter_product_name_alert_locator, \
     enter_product_category_alert_locator, enter_product_price_alert_locator
 from utilities.WaitManager import WaitManager
-
+import allure
 from selenium.webdriver.common.keys import Keys
 
 
@@ -96,3 +99,58 @@ class ExpensesPage:
                 alert_expense_name.is_displayed() and alert_expense_category.is_displayed() and alert_expense_price.is_displayed()):
             raise AssertionError("Some alert(s) were not displayed for expenses creation.")
         return True
+
+    def click_expenses_options(self):
+        expenses_options = WaitManager.wait_for_element(self.driver, expenses_first_option_menu)
+        expenses_options.click()
+
+    def click_show_expense_option(self):
+        show_expenses_options = WaitManager.wait_for_element(self.driver, show_option_of_menu)
+        show_expenses_options.click()
+
+    from allure_commons.types import AttachmentType
+
+    def are_labels_content_translated_to_spanish(self):
+        expense_name_showed = WaitManager.wait_for_element(self.driver, name_show_label)
+        expense_category_showed = WaitManager.wait_for_element(self.driver, expense_show_label)
+        expense_currency_showed = WaitManager.wait_for_element(self.driver, currency_show_label)
+        expense_total_showed = WaitManager.wait_for_element(self.driver, total_show_label)
+        expense_description_showed = WaitManager.wait_for_element(self.driver, description_show_label)
+        expense_reference_showed = WaitManager.wait_for_element(self.driver, ref_show_label)
+
+        result = True
+        incorrect_fields = []
+
+        if expense_name_showed.text != "Nombre":
+            result = False
+            incorrect_fields.append("Nombre")
+
+        if expense_category_showed.text != "Categoría de gasto":
+            result = False
+            incorrect_fields.append("Categoría de gasto")
+
+        if expense_currency_showed.text != "Moneda":
+            result = False
+            incorrect_fields.append("Moneda")
+
+        if expense_total_showed.text != "Total":
+            result = False
+            incorrect_fields.append("Total")
+
+        if expense_description_showed.text != "Descripción":
+            result = False
+            incorrect_fields.append("Descripción")
+
+        if expense_reference_showed.text != "Ref":
+            result = False
+            incorrect_fields.append("Ref")
+
+        if not result:
+            error_message = f"Following fields are not translated correctly: {', '.join(incorrect_fields)}"
+            allure.attach(error_message, name="Incorrect Fields", attachment_type=AttachmentType.TEXT)
+            raise AssertionError(error_message)
+
+        return result
+
+
+

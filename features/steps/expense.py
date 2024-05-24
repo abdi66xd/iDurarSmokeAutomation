@@ -91,19 +91,27 @@ def step_impl(context):
 
 @given(u'I have selected spanish language on language dropdown')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Given I have selected spanish language on language dropdown')
+    dashboard_page = DashboardPage(context.driver)
+    context.dashboard_page = dashboard_page
+    dashboard_page.select_language("Spanish")
 
 
 @when(u'I click on the options menu for the first row of expenses list')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click on the options menu for the first row of expenses list')
+    expense_page = ExpensesPage(context.driver)
+    context.expenses_page = expense_page
+    expense_page.click_expenses_options()
 
 
 @when(u'I click show option on the options menu')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: When I click show option on the options menu')
+    expense_page = ExpensesPage(context.driver)
+    context.expenses_page = expense_page
+    expense_page.click_show_expense_option()
 
 
-@then(u'I should see the labels of the row translated to spanish')
+@then(u'I should see the labels for the show section translated to spanish')
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then I should see the labels of the row translated to spanish')
+    expense_page = ExpensesPage(context.driver)
+    context.expenses_page = expense_page
+    assert expense_page.are_labels_content_translated_to_spanish()
