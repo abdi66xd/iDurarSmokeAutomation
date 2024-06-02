@@ -14,7 +14,7 @@ enter_expenses_name_alert_locator = (By.XPATH, "(//div[contains(text(),'Please e
 enter_expenses_category_alert_locator = (By.XPATH, "(//div[contains(text(),'Please enter Expense Category')])[1]")
 enter_expenses_price_alert_locator = (By.XPATH, "(//div[contains(text(),'Please enter Total')])[1]")
 expenses_first_option_menu = (By.XPATH, "//tbody/tr[2]/td[7]/span[1]//*[name()='svg']")
-show_option_of_menu = (By.CSS_SELECTOR, "div[class='ant-dropdown css-16v3ahg ant-dropdown-placement-bottomLeft'] li:nth-child(1)")
+show_option_of_menu = (By.CSS_SELECTOR, "div[class='ant-dropdown css-1rzm55x ant-dropdown-placement-bottomLeft'] li:nth-child(1)")
 name_show_label = (By.XPATH, "(//p)[2]")
 expense_show_label = (By.XPATH, "(//p)[5]")
 currency_show_label = (By.XPATH, "(//p)[8]")

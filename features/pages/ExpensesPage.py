@@ -102,11 +102,15 @@ class ExpensesPage:
 
     def click_expenses_options(self):
         expenses_options = WaitManager.wait_for_element(self.driver, expenses_first_option_menu)
+        time.sleep(3)
         expenses_options.click()
+        time.sleep(3)
 
     def click_show_expense_option(self):
         show_expenses_options = WaitManager.wait_for_element(self.driver, show_option_of_menu)
+        time.sleep(3)
         show_expenses_options.click()
+        time.sleep(3)
 
     from allure_commons.types import AttachmentType
 

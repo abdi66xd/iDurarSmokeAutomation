@@ -60,3 +60,5 @@ class PeoplePage:
         people_email_field = WaitManager.wait_for_element(self.driver, people_email_locator)
         people_email_field.clear()
         people_email_field.send_keys(people_email)
+
+
